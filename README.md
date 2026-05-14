@@ -22,4 +22,4 @@ There are development builds available through:
 
 These have debug information in the binaries, so their file sizes are relatively larger.
 
-Prebuilt Development builds are provided for **Linux**, **Windows** and **macOS**.
+Prebuilt Development builds are provided for **Linux**, **Windows**
