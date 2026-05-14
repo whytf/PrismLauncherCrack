@@ -51,11 +51,11 @@ jobs:
           github-token: ${{ github.token }}
 
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Determine metadata for image
         id: image-metadata
-        uses: docker/metadata-action@v6
+        uses: docker/metadata-action@v5
         with:
           images: |
             ${{ steps.image-name.outputs.image-name }}
@@ -98,7 +98,7 @@ jobs:
 
       - name: Upload digest artifact
         if: ${{ github.event_name != 'pull_request' }}
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: digests-${{ matrix.arch }}
           path: ${{ runner.temp }}/digests/*
@@ -119,7 +119,7 @@ jobs:
 
     steps:
       - name: Download digests
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@v4
         with:
           path: ${{ runner.temp }}/digests
           pattern: digests-*
@@ -141,7 +141,7 @@ jobs:
 
       - name: Determine metadata for manifest
         id: manifest-metadata
-        uses: docker/metadata-action@v6
+        uses: docker/metadata-action@v5
         with:
           images: |
             ${{ needs.build.outputs.image-name }}
